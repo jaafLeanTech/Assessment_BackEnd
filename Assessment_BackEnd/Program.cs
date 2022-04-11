@@ -6,6 +6,11 @@ namespace Assessment_BackEnd
     {
         static void Main(string[] args)
         {
+            RemoveCharacters();
+        }
+
+        static string RemoveCharacters()
+        {
             string message = String.Empty;
             string answer = String.Empty;
 
@@ -20,12 +25,15 @@ namespace Assessment_BackEnd
                     Console.WriteLine("NA");
                 else
                     Console.WriteLine(message);
-                               
-                
+
+
                 Console.WriteLine("Do you want to enter another message? (Yes/No)");
                 answer = Console.ReadLine();
             }
             while (answer == "Yes");
+
+            return message;
         }
+
     }
 }
