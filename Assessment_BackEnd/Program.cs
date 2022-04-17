@@ -19,7 +19,7 @@ namespace Assessment_BackEnd
                 Console.Write("Enter the message: ");
                 message = Console.ReadLine();
 
-                message = String.Join("", message.Split('@', ',', '.', ';', '\'', '$', '#', '(', ')', '"', '=', '?', '¿', '¡', '!', '%', '&', '/', '|', '¬', '°', '>', '<'));
+                message = String.Join("", message.Split('@', ',', '.', ';', '$', '#', '(', ')',  '=', '?', '¿', '¡', '!', '%', '&', '/', '|', '¬', '°', '>', '<', '+', '*', '~', '{', '}', '[', ']', '^', '`', '¨', '´', '"', 'Ç' ));
 
                 if (message == String.Empty)
                     Console.WriteLine("NA");
