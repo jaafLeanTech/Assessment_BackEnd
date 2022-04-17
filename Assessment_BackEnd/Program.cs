@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Assessment_BackEnd
 {
@@ -11,20 +16,22 @@ namespace Assessment_BackEnd
 
         static string RemoveCharacters()
         {
-            string message = String.Empty;
+            string messageInput = String.Empty;
+            string messageOutput = String.Empty;
             string answer = String.Empty;
+            List<string> casa = new List<string>();
 
             do
             {
                 Console.Write("Enter the message: ");
-                message = Console.ReadLine();
+                messageInput = Console.ReadLine();
 
-                message = String.Join("", message.Split('@', ',', '.', ';', '$', '#', '(', ')',  '=', '?', '¿', '¡', '!', '%', '&', '/', '|', '¬', '°', '>', '<', '+', '*', '~', '{', '}', '[', ']', '^', '`', '¨', '´', '"', 'Ç' ));
+                messageOutput = Regex.Replace(messageInput, @"[^\w\-_ ]+", "");
 
-                if (message == String.Empty)
+                if (messageOutput == String.Empty)
                     Console.WriteLine("NA");
                 else
-                    Console.WriteLine(message);
+                    Console.WriteLine(messageOutput);
 
 
                 Console.WriteLine("Do you want to enter another message? (Yes/No)");
@@ -32,7 +39,7 @@ namespace Assessment_BackEnd
             }
             while (answer == "Yes");
 
-            return message;
+            return messageOutput;
         }
 
     }
