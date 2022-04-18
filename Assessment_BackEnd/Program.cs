@@ -19,15 +19,15 @@ namespace Assessment_BackEnd
             string messageInput = String.Empty;
             string messageOutput = String.Empty;
             string answer = String.Empty;
-            List<string> casa = new List<string>();
 
             do
             {
                 Console.Write("Enter the message: ");
                 messageInput = Console.ReadLine();
 
-                messageOutput = Regex.Replace(messageInput, @"[^\w\-_ ]+", "");
+                messageOutput = Regex.Replace(messageInput, @"[^\w\s-_ ]+", string.Empty);
 
+               
                 if (messageOutput == String.Empty)
                     Console.WriteLine("NA");
                 else
@@ -37,7 +37,7 @@ namespace Assessment_BackEnd
                 Console.WriteLine("Do you want to enter another message? (Yes/No)");
                 answer = Console.ReadLine();
             }
-            while (answer == "Yes");
+            while (answer.ToUpper() == "YES");
 
             return messageOutput;
         }
